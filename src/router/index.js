@@ -1,20 +1,46 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import MyHome from "../views/MyHome.vue";
+import MyLogin from "../views/MyLogin.vue";
+import MyRegistration from "../views/MyRegistration.vue";
+import MyMeetings from "../views/MyMeetings.vue";
+import CheckIn from "../views/CheckIn.vue";
+import Atendees from "../views/Atendees.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
-    component: HomeView,
+    component: MyHome,
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    path: "/login",
+    name: "login",
+    component: MyLogin,
+  },
+  {
+    path: "/meetings",
+    name: "meetings",
+    component: MyMeetings,
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: MyRegistration,
+  },
+  {
+    path: "/checkin/:userID/:meetingID",
+    name: "checkin",
+    component: CheckIn,
+  },
+  {
+    path: "/atendees/:userID/:meetingID",
+    name: "Atendees",
+    component: Atendees,
+  },
+
+  {
+    path: "/:catchAll(.*)", // Unrecognized path automatically matches 404
+    redirect: "/",
   },
 ];
 
